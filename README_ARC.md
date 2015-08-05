@@ -33,6 +33,7 @@ Coming soon...
 The file thesis-info.tex holds the front page information. Please see below for the changes to be made.
 
 Change the following in the file thesis-info.tex:
+
 1. Enter your title on line 3. Note, if your title has capital letters other than at the start of the sentence, e.g. uses abbreviations like MRI or DNA, make sure your entire title is in between double curly brackets. e.g. \title{{Brain structure in ASC measured using MRI}}. If you do not put these between double curly brackets, they will be printed as lowercase. 
 2. You can also give a subtitle on line 9, but leave this option blank or comment it out using a % if you do not have a subtitle.
 3. Change the author name on line 12 to your full name (including middle names etc)
