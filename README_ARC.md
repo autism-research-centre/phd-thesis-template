@@ -8,11 +8,12 @@ First of all, please read the README file created by kks32 so that you have an i
 
 This file will also give examples of tables and longtables (across several pages) in landscape and portrait format and examples of figures, which you can use as a template for your own tables and figures. 
 
-Some general notes: 
+Some general tips: 
 1. the percentage symbol “%” is used to comment out lines in LaTeX
 2. the backslash “\” is used to start commands
 3. two backslashes “\\” are used to insert a line break.
 4. any document in LaTeX (outside of the thesis environment) need to always start by specifying the document class, secondly you will load in packages to use, and thirdly you will start the document using “\begin{document}” and you will finish the document with “\end{document}”
+5. Google is your friend and knows everything about LaTeX, or well at least where you can find the answers to your questions: [stackoverflow](http://stackoverflow.com) being a great resource and the [LaTeX wikibooks](https://en.wikibooks.org/wiki/LaTeX) another.
 
 Note that I will be adding more instructions to this file over the next few weeks.
 I hope that this helps and if you have any questions or would like to add/correct anything, please feel free to commit a change or send me an email (ar560@cam.ac.uk).
@@ -92,6 +93,61 @@ There are several other options such as index, chapter, draft etc., please read 
   14. Bibliography - keep as is
   15. Appendices - CHANGE. Include all your appendices here.
   16. Index - keep as is
+
+### Figure template
+I would suggest trying to create your figures in a separate LaTeX document to try out the layout etc before putting it into the Chapter’s main body of text.
+
+If you do try this in a separate document, you first need to specify the following commands. 
+
+% Specify document class
+\documentclass[12pt]{article}
+
+% Load packages
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+NOTE, these commands are not necessary if you are using the figure in the chapter#.tex file.
+
+Now we begin the figure example format. I have chosen an example where I combined both images and graphs in one figure. This means that I used the command [“subfigure”](https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions).
+
+I always recommend putting your figure in a “group” so that it is nicely formatted in the text.
+
+% Start group and figure
+\begingroup
+\begin{figure}[!ht] % !ht has something to do with the centring of the table
+  \centering % I like to use indents to make distinctions between commands and how they relate to each other
+% note: an empty line creates a line break (enter) in the figure environment
+
+  \begin{subfigure}[b]{0.48\textwidth} % This means that the figure will be 48\% of the of the text width. The reason for choosing this amount is because I want two sets of figures to fit next to each other on the page. If you only have one figure you could chose your figure width to be “\textwidth”
+    \includegraphics[width = \textwidth]{“path to figure”}
+    \includegraphics[width = \textwidth]{“path to figure”}
+    \caption{\footnotesize{“subtitle”}} % I prefer the text within my figure to be smaller than the main text
+    \label{“figure label”}
+  \end{subfigure}
+~
+  \begin{subfigure}[b]{0.48\textwidth} % This means that the figure will be 48\% of the of the text width. The reason for choosing this amount is because I want two sets of figures to fit next to each other on the page. If you only have one figure you could chose your figure width to be “\textwidth”
+    \includegraphics[width = \textwidth]{“path to figure”}
+    \includegraphics[width = \textwidth]{“path to figure”}
+    \caption{\footnotesize{“subtitle”}} % I prefer the text within my figure to be smaller than the main text
+    \label{“figure label”}
+  \end{subfigure}
+~
+
+    \caption[Figure Short Caption]
+    {Figure Long Caption \\
+    \footnotesize{Figure legend text
+    }}
+
+    \label{fig:}
+
+
+% End figure and group environments
+\end{figure}
+\end{group}
+
+% End document class
+\end{document}
+
 
 
 
