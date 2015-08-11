@@ -36,7 +36,7 @@ For Windows:
 After you have unzipped the file downloaded from kks32, the folder will have several files called “thesis” in different file formats. The only “thesis” file you are interested in is the thesis.tex file. 
 Furthermore, there will be folders for each chapter and appendix and folders for abstract, declaration, references, etc. Please adhere to this folder structure.
 
-In each chapter folder you should find a file called chapter*.tex, and chapter*.aux, e.g. chapter1.tex and chapter1.aux. Again, you are only ever interested in the .tex files. Depending on how you want to add in your figures, you may also have a folder within your chapter folder called “Figures”.
+In each chapter folder you should find a file called chapter#.tex, and chapter#.aux, e.g. chapter1.tex and chapter1.aux. Again, you are only ever interested in the .tex files. Depending on how you want to add in your figures, you may also have a folder within your chapter folder called “Figures”.
 
 ### Changes to the front page
 The file thesis-info.tex holds the front page information. Please see below for the changes to be made. Change the following in the file thesis-info.tex:
@@ -54,19 +54,19 @@ The file thesis-info.tex holds the front page information. Please see below for 
 The files thesis.tex and preamble.tex set information such as the referencing style, font, margins, which LaTeX packages you want to use etc. These are some of the options that I have played with/changed/added. For all the items I have changed, I will give the defaults and then the options for changing them.
 
 1. The folder Preamble holds the file preamble.tex, just open it using TeXShop or TeXworks.
-1.1 Custom Margin - Keep as is. These are the settings as required by the Student Registry for margin spacing.
-1.2 Fonts - Optional. The standard font is _Times_ I believe, however, I liked the _Fourier_ font much better as formulas were better readable. However, that is of course your choice. If you like the standard font, do not change anything. If you want to change your font to fourier, uncomment out line 20 to make the command “\RequirePackage{helvet}” active. You will also need to change a command in the thesis.tex file but I will come back to that.
-1.3 The following sections are are part of “Custom Packages”, you can change things as you like, I will recommend the addition of certain packages but this can be altered to your needs.
-1.4 Algorithms and Pseudocode - Keep as is
-1.4.1 Captions and Hyperreferencing / URL - Keep as is
-1.4.2 Graphics and Figures - Keep as is
-1.4.3 Tables - Optional. Uncomment the lines for “\usepackage(long table}” and “\usepackage{tabular}”. Add a line with the command: \usepackage{lscape} (this is the package for landscape formatted tables). The package multicol is for using tables with multiple columns in one row, so if you want to build a table with exactly that, you should uncomment that line as well.
-1.4.4 SI Units - Optional
+  1. Custom Margin - Keep as is. These are the settings as required by the Student Registry for margin spacing.
+  2. Fonts - Optional. The standard font is _Times_ I believe, however, I liked the _Fourier_ font much better as formulas were better readable. However, that is of course your choice. If you like the standard font, do not change anything. If you want to change your font to fourier, uncomment out line 20 to make the command “\RequirePackage{helvet}” active. You will also need to change a command in the thesis.tex file but I will come back to that.
+  3. The following sections are are part of “Custom Packages”, you can change things as you like, I will recommend the addition of certain packages but this can be altered to your needs.
+  4. Algorithms and Pseudocode - Keep as is
+    1. Captions and Hyperreferencing / URL - Keep as is
+    2. Graphics and Figures - Keep as is
+    3. Tables - Optional. Uncomment the lines for “\usepackage(long table}” and “\usepackage{tabular}”. Add a line with the command: \usepackage{lscape} (this is the package for landscape formatted tables). The package multicol is for using tables with multiple columns in one row, so if you want to build a table with exactly that, you should uncomment that line as well.
+    4. SI Units - Optional
 I had some trouble getting the right maths fonts, especially since I used the fourier font. So in addition to the siunitx package I also added the following packages, one per line: \usepackage{amsfonts}; \usepackage{amsmath}; \usepackage{amssymb}
-1.4.5 Line Spacing - Keep as is
-1.4.6 Formatting/Footnote - Keep as is
-1.5 Bibliography - Keep as is
-1.6 User Defined Commands and all its subcomponents - Keep as is
+    5. Line Spacing - Keep as is
+    6. Formatting/Footnote - Keep as is
+  5. Bibliography - Keep as is
+  6. User Defined Commands and all its subcomponents - Keep as is
 
 2. thesis.tex can be found in the main folder.
 2.1 document class specifications:
