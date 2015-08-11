@@ -14,6 +14,7 @@ Some general tips:
 3. two backslashes “\\” are used to insert a line break.
 4. any document in LaTeX (outside of the thesis environment) need to always start by specifying the document class, secondly you will load in packages to use, and thirdly you will start the document using “\begin{document}” and you will finish the document with “\end{document}”
 5. Google is your friend and knows everything about LaTeX, or well at least where you can find the answers to your questions: [stackoverflow](http://stackoverflow.com) being a great resource and the [LaTeX wikibooks](https://en.wikibooks.org/wiki/LaTeX) another.
+6. Anything between dollar signs will automatically be in math mode, e.g. $x + x$
 
 Note that I will be adding more instructions to this file over the next few weeks.
 I hope that this helps and if you have any questions or would like to add/correct anything, please feel free to commit a change or send me an email (ar560@cam.ac.uk).
@@ -99,12 +100,12 @@ I would suggest trying to create your figures in a separate LaTeX document to tr
 
 If you do try this in a separate document, you first need to specify the following commands. 
 
-% Specify document class
-\documentclass[12pt]{article}
+    % Specify document class
+    \documentclass[12pt]{article}
 
-% Load packages
-\usepackage{graphicx}
-\usepackage{subcaption}
+    % Load packages
+    \usepackage{graphicx}
+    \usepackage{subcaption}
 
 NOTE, these commands are not necessary if you are using the figure in the chapter#.tex file.
 
@@ -112,6 +113,9 @@ Now we begin the figure example format. I have chosen an example where I combine
 
 I always recommend putting your figure in a “group” so that it is nicely formatted in the text.
 
+    %Begin document
+    \being{document}
+    
     % Start group and figure
     \begingroup
     \begin{figure}[!ht] % !ht has something to do with the centring of the table
@@ -138,18 +142,181 @@ I always recommend putting your figure in a “group” so that it is nicely for
     \footnotesize{Figure legend text
     }}
 
-    \label{fig:}
+    \label{fig:fig#_chp#_title}
+    % You use the label for referring to your table in the text so make it easy and understandble
 
 
     % End figure and group environments
     \end{figure}
-    \end{group}
+    \endgroup
 
     % End document class
     \end{document}
 
 
 ### Table templates
+There are several ways of creating tables in LaTeX. You can use the tabularx package for normal tables, however this package will not work for tables that go across several pages. The package that you need for those kinds of tables is longtable. In addition, the package lscape will be able to put your table in a landscape format. 
 
+As the margins of your thesis are set, you should keep these in mind when building your tables. I found that a maximum table size of 14cm width works well for portrait tables and 20cm width works well for landscape tables. I would suggest keeping all your tables the same width to keep consistency in your formatting. Furthermore, if you have several long tables spanning several pages, I would suggest using the longtable package for all your tables, including those that do not span several pages as tabularx leads to slightly different formatting than longtable when compiled in the thesis document.
+
+As for figures, I would suggest trying to create your tables first in a separate LaTeX document to try out the layout etc before putting it into the Chapter’s main body of text. If you do try this in a separate document, you first need to specify the following commands. 
+
+    % Specify document class
+    \documentclass[12pt]{article}
+
+    % Load packages
+    \usepackage{longtable}
+    \usepackage{lscape}
+    \usepackage{tabularx}
+    \usepackage{booktabs}
+
+NOTE, these commands are not necessary if you have the table in the chapter#.tex file. And again, I always recommend putting your table in a “group” so that it is nicely formatted in the text.
+
+## The [longtable]{ftp://ftp.dante.de/tex-archive/macros/latex/required/tools/longtable.pdf} portrait example format. 
+This table should come out as a working example in LaTeX. It has 9 rows, space for notes and abbreviations at the bottom of the table, and has three rows for column headings, as used for sub-columns. The & sign is the separator between columns. Try running this example in LaTeX and play around with it so you understand what all the little commands mean. For a table that spans over 2 pages, try adding on 20 more lines of main body table content (just copy paste as an example) to see the full effect of the longtable package.
+
+
+    % Begin document
+    \begin{document}
+    
+    % Start group and table
+    \begingroup
+
+      \centering
+      \footnotesize # As with figures, I prefer to have my tables in a smaller font than the main text
+
+    \begin{longtable}{p{4.1cm} p{1.8cm} p{1.2cm} p{1cm} p{1cm} p{1cm} p{1cm}} \\ % never exceed 14cm in total
+
+    \caption{\mbox{Your table title}} \\
+    \label{tab:tab#_chp#_title_shortcut} \\
+
+    % First Head
+    \toprule
+    	&	&	\multicolumn{5}{l}{Language differences} % the 5 indicates that the column spreads over 5 columns, the “l” indicates that the text should be leftward
+    \cmidrule(l{3pt}){3-7}
+    	&	&	\multicolumn{3}{l}{Controls}		&	\multicolumn{2}{l}{Autism} \\
+    \cmidrule(r{3pt}){3-5}	\cmidrule(r{3pt}){6-7}
+    Structure	&	Test	&	$F$ 	&	$t$	&	$p$	&	$t$	&	$p$ \\
+    \midrule
+    \endfirsthead
+
+    % Head
+    \multicolumn{7}{l}
+    {\tablename\ \thetable\ — \textit{Continued from previous page}} \\
+
+    \midrule
+    	&	&	\multicolumn{5}{l}{Language differences} % the 5 indicates that the column spreads over 5 columns, the “l” indicates that the text should be leftward
+    \cmidrule(l{3pt}){3-7}
+    	&	&	\multicolumn{3}{l}{Controls}		&	\multicolumn{2}{l}{Autism} \\
+    \cmidrule(r{3pt}){3-5}	\cmidrule(r{3pt}){6-7}
+    Structure	&	Test	&	$F$ 	&	$t$	&	$p$	&	$t$	&	$p$ \\
+    \midrule
+    \endhead
+
+    % Foot
+    \midrule
+    \multicolumn{7}{p{14cm}}{\scriptsize{Notes: put some text here.}} \\
+    \multicolumn{7}{p{14cm}}{\sciptsize{Abbreviations: put your abbreviations here.}} \\
+    \midrule
+    \multicolumn{7}{r}{\textit{Continued on next page}} \\
+    \endfoot
+
+    % End Last Foot
+    \midrule
+    \multicolumn{7}{p{14cm}}{\scriptsize{Notes: put some text here.}} \\
+    \multicolumn{7}{p{14cm}}{\sciptsize{Abbreviations: put your abbreviations here.}} \\
+    \bottomrule
+    \endlastfoot
+
+    % Main body table (which you can easily make in excel and copy over)
+    Brain region	&	Outcome	&	5.3	&	7.4	&	0.04	&	6.4	&	0.05 	\\
+    Brain region	&	Outcome	&	5.3	&	7.4	&	0.04	&	6.4	&	0.05 	\\
+    Brain region	&	Outcome	&	5.3	&	7.4	&	0.04	&	6.4	&	0.05 	\\
+
+    \\[-4.8ex] & & & & \\
+    Brain region	&	Outcome	&	5.3	&	7.4	&	0.04	&	6.4	&	0.05 	\\
+    Brain region	&	Outcome	&	5.3	&	7.4	&	0.04	&	6.4	&	0.05 	\\
+    Brain region	&	Outcome	&	5.3	&	7.4	&	0.04	&	6.4	&	0.05 	\\
+    Brain region	&	Outcome	&	5.3	&	7.4	&	0.04	&	6.4	&	0.05 	\\
+    Brain region	&	Outcome	&	5.3	&	7.4	&	0.04	&	6.4	&	0.05 	\\
+    Brain region	&	Outcome	&	5.3	&	7.4	&	0.04	&	6.4	&	0.05 	\\
+
+    % End longtable and group
+    \end{longtable}
+    \endgroup
+
+    % End document
+    \end{document}
+
+
+## The [longtable]{ftp://ftp.dante.de/tex-archive/macros/latex/required/tools/longtable.pdf} landscape example format. 
+
+    % Begin document
+    \begin{document}
+    
+    % Start group, landscape and table
+    \begingroup
+    \begin{landscape}
+
+      \centering
+      \footnotesize # As with figures, I prefer to have my tables in a smaller font than the main text
+
+    \begin{longtable}{p{4.5cm} p{1.5cm} p{1.5cm} p{1.5cm} p{1.5cm} | p{1.5cm} p{1.5cm} p{1.5cm} p{1.5cm}} \\ % never exceed 20cm in total
+
+    \caption{\mbox{Your table title}} \\
+    \label{tab:tab#_chp#_title_shortcut} \\
+
+    % First Head
+    \toprule
+    	&	&	\multicolumn{4}{c}{\textbf{Females (N=100)}} 	& \multicolumn{4}{c}{\textbf{Males (N=100)}} \\
+    \cmidrule(2-9}
+    Region	&	Mean	&	St. Dev.	&	Min	&	Max	& Mean	&	St. Dev.	&	Min	&	Max	\\
+    \midrule
+    \endfirsthead
+
+    % Head
+    \multicolumn{9}{l}
+    {\tablename\ \thetable\ — \textit{Continued from previous page}} \\
+    \midrule
+    	&	&	\multicolumn{4}{c}{\textbf{Females (N=100)}} 	& \multicolumn{4}{c}{\textbf{Males (N=100)}} \\
+    \cmidrule(2-9}
+    Region	&	Mean	&	St. Dev.	&	Min	&	Max	& Mean	&	St. Dev.	&	Min	&	Max	\\
+    \midrule
+    \endhead
+
+    % Foot
+    \midrule
+    \multicolumn{9}{p{20cm}}{\scriptsize{Notes: put some text here.}} \\
+    \multicolumn{9}{p{20cm}}{\sciptsize{Abbreviations: put your abbreviations here.}} \\
+    \midrule
+    \multicolumn{9}{r}{\textit{Continued on next page}} \\
+    \endfoot
+
+    % End Last Foot
+    \midrule
+    \multicolumn{9}{p{20cm}}{\scriptsize{Notes: put some text here.}} \\
+    \multicolumn{9}{p{20cm}}{\sciptsize{Abbreviations: put your abbreviations here.}} \\
+    \bottomrule
+    \endlastfoot
+
+    % Main body table (which you can easily make in excel and copy over)
+    \multicolumn{9}{l}{\textit{Global volumes}} \\
+    Brain region	&	200.00	&	15.00	&	185.00	&	215.00	&	250.00	&	25.00	&	225.00	&	275.00	\\
+    Brain region	&	200.00	&	15.00	&	185.00	&	215.00	&	250.00	&	25.00	&	225.00	&	275.00	\\
+    Brain region	&	200.00	&	15.00	&	185.00	&	215.00	&	250.00	&	25.00	&	225.00	&	275.00	\\
+
+    \\[-4.8ex] & & & & \\
+    \multicolumn{9}{l}{\textit{Regional volumes}} \\
+    Brain region	&	200.00	&	15.00	&	185.00	&	215.00	&	250.00	&	25.00	&	225.00	&	275.00	\\
+    Brain region	&	200.00	&	15.00	&	185.00	&	215.00	&	250.00	&	25.00	&	225.00	&	275.00	\\
+    Brain region	&	200.00	&	15.00	&	185.00	&	215.00	&	250.00	&	25.00	&	225.00	&	275.00	\\
+
+    % End longtable, landscape and group
+    \end{longtable}
+    \emd{landscape}
+    \endgroup
+
+    % End document
+    \end{document}
 
 
