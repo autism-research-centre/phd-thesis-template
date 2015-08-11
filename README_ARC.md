@@ -95,6 +95,50 @@ There are several other options such as index, chapter, draft etc., please read 
   15. Appendices - CHANGE. Include all your appendices here.
   16. Index - keep as is
 
+
+### Chapter template
+Each chapter should be outlined in sections and have a reference to where your figures (.png or .pdf files) can be called from.
+Please see below for a generic template and several suggestions on how to put in a reference (will be outlined more below) and a abbreviation, which will automatically be put in the nomenclature abbreviations list. Note that you should only call the nomenclature command for an abbreviation once per chapter, otherwise you will have a double abbreviation in the list.
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%% First Chapter %%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    % Title of your chapter
+    \chapter{Title of your Chapter}
+    \label{sec:Chapter1}
+
+    %%%%%%%%%%%%%% Define Graphics Path%%%%%%%%%%%%%%
+    \ifpdf
+    \graphicspath{{Chapter1/Figures/}}
+    \else
+    \graphicspath{{Chapter1/Figures/}} % if you only have one path, this should be equal to the first, if more than one path different
+    \fi
+
+    %%%%%%%%%%%%%%%%% First Section %%%%%%%%%%%%%%%%
+   \section{Introduction} % Section - 1.1
+    \label{sec:chp1_sec1_intro}
+
+    % Main body text section
+    Put some text here on what you are writing about. Maybe you could put in a reference using the bibtex format \citep{bc11_plosbiol}. If you are talking about abbreviations such as deoxyribonucleic acid (DNA) \nomenclature[z]{DNA}{Deoxyribonucleic Acid} and magnetic resonance imaging (MRI) \nomenclature[z]{MRI}{Magnetic Resonance Imaging}, you only have to include the nomenclature command once. If you would repeat it when saying DNA and MRI again, then you get an error message.
+
+    \subsection{For equations} % Section 1.1.1
+    \label{sec:chp1_sec1.1_forequations}
+
+    If you would like to put equations in your text than you should use the following format.
+    
+    \begin{equation}
+    \label{eq:chp1_eq1}
+    y ~ \beta_{y} + \alpha_{z} + \varepsilon_{i}
+    \end{equation}
+
+    You can then refer back to your equation \ref{eq:chp1_eq1} and even your sections \ref{sec:chp1_sec1_intro}, so make sure you name them well in order not to get too confused. And if you want to add in a table or a figure, just go ahead and LaTeX will place them appropriately in the text. 
+
+    \section{Conclusion} % Section 1.2
+    \label{sec:chp1_sec2_conclusion}
+    Just play around with it. You can use the same format for appendices, just called it an appendix instead of a chapter.
+
+
 ### Figure template
 I would suggest trying to create your figures in a separate LaTeX document to try out the layout etc before putting it into the Chapter’s main body of text.
 
@@ -318,5 +362,39 @@ This table should come out as a working example in LaTeX. It has 9 rows, space f
 
     % End document
     \end{document}
+
+
+### Referencing
+I used the bibtex format for referencing, see the [wikipage](https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management) for more information on referencing as well. This format requires you to have a references.bib file in the folder References. In the references.bib file you have all your references in the bibtex format. You can easily export references to the bibtex format from EndNote, Papers, Mendeley, Zotero, etc. Obviously not all reference managers will have all your references in the same format, e.g. titles can be in any of these formats:
+
+Sex Differences In The Brain: Implications for Explaining Autism
+Sex differences in the brain: Implications for explaining autism % I prefer this format
+SEX DIFFERENCES IN THE BRAIN: IMPLICATIONS FORE EXPLANING AUTISM
+
+So you need to check all your references for these tiny inconsistencies. Similarly author names could different too so be sure to check those and journal names as well:
+
+Baron-Cohen, Simon and Knickmeyer, Rebecca C and Belmonte, Matthew K
+Baron-Cohen, S and Knickmeyer, R C and Belmonte, M K % I prefer this format because some journals do not give full names
+
+
+One thing is that you need to link each of references to a specific code. I usually use nameyear_journalabbreviation. 
+For examples  on whole references see below.
+
+    @article{bc05_science,
+    author = {Baron-Cohen, S and Knickmeyer, R C and Belmonte, M K},
+    title = {{Sex differences in the brain: Implications for explaining autism}},
+    journal = {Science},
+    year = {2005},
+    volume = {310},
+    number = {5749},
+    pages = {819—823}
+    }
+
+    @book{bc04_book,
+    author = {Baron-Cohen, S and Lutchmaya, S and Knickmeyer, R},
+    title = {Prenatal Testosterone in Mind: Amniotic Fluid Studies}},
+    publisher = {MIT Press},
+    year = {2004}
+    }
 
 
