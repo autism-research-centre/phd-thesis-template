@@ -116,7 +116,7 @@ Please see below for a generic template and several suggestions on how to put in
     \fi
 
     %%%%%%%%%%%%%%%%% First Section %%%%%%%%%%%%%%%%
-   \section{Introduction} % Section - 1.1
+    \section{Introduction} % Section - 1.1
     \label{sec:chp1_sec1_intro}
 
     % Main body text section
