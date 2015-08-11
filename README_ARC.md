@@ -216,8 +216,8 @@ As for figures, I would suggest trying to create your tables first in a separate
 
 NOTE, these commands are not necessary if you have the table in the chapter#.tex file. And again, I always recommend putting your table in a “group” so that it is nicely formatted in the text.
 
-## The [longtable]{ftp://ftp.dante.de/tex-archive/macros/latex/required/tools/longtable.pdf} portrait example format. 
-This table should come out as a working example in LaTeX. It has 9 rows, space for notes and abbreviations at the bottom of the table, and has three rows for column headings, as used for sub-columns. The & sign is the separator between columns. Try running this example in LaTeX and play around with it so you understand what all the little commands mean. For a table that spans over 2 pages, try adding on 20 more lines of main body table content (just copy paste as an example) to see the full effect of the longtable package.
+## The longtable portrait example format. 
+This [longtable](ftp://ftp.dante.de/tex-archive/macros/latex/required/tools/longtable.pdf) should come out as a working example in LaTeX. It has 9 rows, space for notes and abbreviations at the bottom of the table, and has three rows for column headings, as used for sub-columns. The & sign is the separator between columns. Try running this example in LaTeX and play around with it so you understand what all the little commands mean. For a table that spans over 2 pages, try adding on 20 more lines of main body table content (just copy paste as an example) to see the full effect of the longtable package.
 
 
     % Begin document
@@ -293,7 +293,7 @@ This table should come out as a working example in LaTeX. It has 9 rows, space f
     \end{document}
 
 
-## The [longtable]{ftp://ftp.dante.de/tex-archive/macros/latex/required/tools/longtable.pdf} landscape example format. 
+## The longtable landscape example format. 
 
     % Begin document
     \begin{document}
