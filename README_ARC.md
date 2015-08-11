@@ -69,7 +69,7 @@ I had some trouble getting the right maths fonts, especially since I used the fo
   6. User Defined Commands and all its subcomponents - Keep as is
 
 2. thesis.tex can be found in the main folder.
-2.1 document class specifications:
+  1. document class specifications:
 a4paper - keep as is
 12pt - keep as is
 times - optional, if you prefer fourier font, change “times” to “fourier”
@@ -77,21 +77,21 @@ numbered - optional, for referencing, this refers to the numbered referencing st
 abstract - is optional and only for when you want to print your thesis title page,the abstract page and declaration page (of which you need to hand in separate copies at the Student Registry)
 print - keep
 There are several other options such as index, chapter, draft etc., please read about those in the README or in the thesis.tex files
-2.2 Custom Page Margins - keep as is
-2.3 Fonts - keep as is
-2.4 Bibliography style - keep as is
-2.5 Page Style - keep as is
-2.6 Preamble - keep as is
-2.7 Thesis Info & Meta-Data - keep as is if you have already changed your thesis-info.tex file
-2.8 Abstract Separate - keep as is
-2.9 Chapter Mode - keep as is, see the thesis.tex/README file for more information
-2.10 Front Matter - optional, I would suggest leaving the declaration, acknowledgement and abstract commands active, if you would like to add a dedication, keep this active too, if you do not, comment the line out as so “%\include{Dedication/dedication}”
-2.11 Adding TOC and List of Figures - keep as is
-2.12 Main Matter - CHANGE. This will include all your chapters, so make sure you add a command for all your chapters.
-2.13 Back Matter - keep as is
-2.14 Bibliography - keep as is
-2.15 Appendices - CHANGE. Include all your appendices here.
-2.16 Index - keep as is
+  2. Custom Page Margins - keep as is
+  3. Fonts - keep as is
+  4. Bibliography style - keep as is
+  5. Page Style - keep as is
+  6. Preamble - keep as is
+  7. Thesis Info & Meta-Data - keep as is if you have already changed your thesis-info.tex file
+  8. Abstract Separate - keep as is
+  9. Chapter Mode - keep as is, see the thesis.tex/README file for more information
+  10. Front Matter - optional, I would suggest leaving the declaration, acknowledgement and abstract commands active, if you would like to add a dedication, keep this active too, if you do not, comment the line out as so “%\include{Dedication/dedication}”
+  11. Adding TOC and List of Figures - keep as is
+  12. Main Matter - CHANGE. This will include all your chapters, so make sure you add a command for all your chapters.
+  13. Back Matter - keep as is
+  14. Bibliography - keep as is
+  15. Appendices - CHANGE. Include all your appendices here.
+  16. Index - keep as is
 
 
 
