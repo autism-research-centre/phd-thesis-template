@@ -112,26 +112,26 @@ Now we begin the figure example format. I have chosen an example where I combine
 
 I always recommend putting your figure in a “group” so that it is nicely formatted in the text.
 
-% Start group and figure
-\begingroup
-\begin{figure}[!ht] % !ht has something to do with the centring of the table
-  \centering % I like to use indents to make distinctions between commands and how they relate to each other
-% note: an empty line creates a line break (enter) in the figure environment
+    % Start group and figure
+    \begingroup
+    \begin{figure}[!ht] % !ht has something to do with the centring of the table
+      \centering % I like to use indents to make distinctions between commands and how they relate to each other
+    % note: an empty line creates a line break (enter) in the figure environment
 
-  \begin{subfigure}[b]{0.48\textwidth} % This means that the figure will be 48\% of the of the text width. The reason for choosing this amount is because I want two sets of figures to fit next to each other on the page. If you only have one figure you could chose your figure width to be “\textwidth”
-    \includegraphics[width = \textwidth]{“path to figure”}
-    \includegraphics[width = \textwidth]{“path to figure”}
-    \caption{\footnotesize{“subtitle”}} % I prefer the text within my figure to be smaller than the main text
-    \label{“figure label”}
-  \end{subfigure}
-~
-  \begin{subfigure}[b]{0.48\textwidth} % This means that the figure will be 48\% of the of the text width. The reason for choosing this amount is because I want two sets of figures to fit next to each other on the page. If you only have one figure you could chose your figure width to be “\textwidth”
-    \includegraphics[width = \textwidth]{“path to figure”}
-    \includegraphics[width = \textwidth]{“path to figure”}
-    \caption{\footnotesize{“subtitle”}} % I prefer the text within my figure to be smaller than the main text
-    \label{“figure label”}
-  \end{subfigure}
-~
+      \begin{subfigure}[b]{0.48\textwidth} % This means that the figure will be 48\% of the of the text width. The reason for choosing this amount is because I want two sets of figures to fit next to each other on the page. If you only have one figure you could chose your figure width to be “\textwidth”
+        \includegraphics[width = \textwidth]{“path to figure”}
+        \includegraphics[width = \textwidth]{“path to figure”}
+        \caption{\footnotesize{“subtitle”}} % I prefer the text within my figure to be smaller than the main text
+        \label{“figure label”}
+      \end{subfigure}
+    ~
+      \begin{subfigure}[b]{0.48\textwidth} % This means that the figure will be 48\% of the of the text width. The reason for choosing this amount is because I want two sets of figures to fit next to each other on the page. If you only have one figure you could chose your figure width to be “\textwidth”
+        \includegraphics[width = \textwidth]{“path to figure”}
+        \includegraphics[width = \textwidth]{“path to figure”}
+        \caption{\footnotesize{“subtitle”}} % I prefer the text within my figure to be smaller than the main text
+        \label{“figure label”}
+      \end{subfigure}
+    ~
 
     \caption[Figure Short Caption]
     {Figure Long Caption \\
@@ -141,13 +141,15 @@ I always recommend putting your figure in a “group” so that it is nicely for
     \label{fig:}
 
 
-% End figure and group environments
-\end{figure}
-\end{group}
+    % End figure and group environments
+    \end{figure}
+    \end{group}
 
-% End document class
-\end{document}
+    % End document class
+    \end{document}
 
+
+### Table templates
 
 
 
