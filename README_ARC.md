@@ -389,7 +389,7 @@ So you need to check all your references for these tiny inconsistencies. Similar
 
 - Baron-Cohen, Simon and Knickmeyer, Rebecca C and Belmonte, Matthew K
 - Baron-Cohen, S and Knickmeyer, R C and Belmonte, M K 
-I prefer the latter format as some journals do not give full names
+% I prefer this format as some journals do not give full names
 
 
 One thing is that you need to link each of references to a specific code. I usually use nameyear_journalabbreviation. 
