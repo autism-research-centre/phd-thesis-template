@@ -9,6 +9,7 @@ First of all, please read the README file created by kks32 so that you have an i
 This file will also give examples of tables and longtables (across several pages) in landscape and portrait format and examples of figures, which you can use as a template for your own tables and figures. 
 
 Some general tips: 
+
 1. the percentage symbol “%” is used to comment out lines in LaTeX
 2. the backslash “\” is used to start commands
 3. two backslashes “\\” are used to insert a line break.
@@ -407,7 +408,7 @@ For examples  on whole references see below.
 
     @book{bc04_book,
     author = {Baron-Cohen, S and Lutchmaya, S and Knickmeyer, R},
-    title = {Prenatal Testosterone in Mind: Amniotic Fluid Studies}},
+    title = {{Prenatal Testosterone in Mind: Amniotic Fluid Studies}},
     publisher = {MIT Press},
     year = {2004}
     }
