@@ -17,7 +17,6 @@ Some general tips:
 5. Google is your friend and knows everything about LaTeX, or well at least where you can find the answers to your questions: [stackoverflow](http://stackoverflow.com) being a great resource and the [LaTeX wikibooks](https://en.wikibooks.org/wiki/LaTeX) another.
 6. Anything between dollar signs will automatically be in math mode, e.g. $x + x$
 
-Note that I will be adding more instructions to this file over the next few weeks.
 I hope that this helps and if you have any questions or would like to add/correct anything, please feel free to commit a change or send me an email (ar560@cam.ac.uk).
 
 Amber
